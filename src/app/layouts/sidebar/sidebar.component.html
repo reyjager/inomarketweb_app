@@ -1,0 +1,9 @@
+<aside class="sidebar-area">
+    <ul class="menu">
+      <li *ngFor="let item of menuItems" 
+          class="menu-item"
+          [class.active]="item.active">
+        {{ item.name }}
+      </li>
+    </ul>
+  </aside>
