@@ -13,16 +13,14 @@ export class JsLoaderService {
 
   private initializeSidebar(): void {
     this.renderer.listen('window', 'DOMContentLoaded', () => {
+      
       const toggleBtn = document.getElementById('toggleBtn');
+
       const sidebar = document.getElementById('sidebar');
       const brand = document.getElementById('brand');
-      console.log('DOM loaded, initializing sidebar');
 
       if (toggleBtn && sidebar && brand) {
-        console.log('Toggle button, sidebar, and brand found');
-
         this.renderer.listen(toggleBtn, 'click', () => {
-          console.log('Toggle button clicked!');
 
           if (window.innerWidth <= 768) {
             // Mobile view: Toggle 'active' class for both elements

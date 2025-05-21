@@ -1,4 +1,4 @@
-<div class="dashboard-grid">
+<div class="grid-area" id="grid">
   <!-- Brand/Logo Area -->
   <header class="brand-area" id="brand">
     <!-- <h1>My Dashboard</h1> -->
@@ -7,9 +7,9 @@
   </header>
 
   <!-- Navigation Bar -->
- <nav class="nav-area">
+ <nav class="nav-area" id="nav">
   <div class="nav-content">
-    <div class="left-section" ><i class="fas fa-bars" id="toggleBtn"></i></div>
+    <div class="left-section" ><i class="fas fa-bars" id="toggleBtn" (click)="toggleLayout()"></i></div>
     <div class="right-section">
 
       <app-navbar></app-navbar>
@@ -23,7 +23,7 @@
   </aside>
 
   <!-- Main Content -->
-  <main class="content-area">
+  <main class="content-area" id="content">
     <app-main-content></app-main-content>
   </main>
 </div>
