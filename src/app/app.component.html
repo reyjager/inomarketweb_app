@@ -1,52 +1,29 @@
 <div class="dashboard-grid">
   <!-- Brand/Logo Area -->
-  <header class="brand-area">
-    <h1>My Dashboard</h1>
-    
+  <header class="brand-area" id="brand">
+    <!-- <h1>My Dashboard</h1> -->
+    <app-brand-header></app-brand-header>
+
   </header>
 
   <!-- Navigation Bar -->
-  <nav class="nav-area">
-    <div class="nav-content">
-      <div class="user-profile">Welcome, Admin</div>
-      <div class="notifications">🔔</div>
+ <nav class="nav-area">
+  <div class="nav-content">
+    <div class="left-section" ><i class="fas fa-bars" id="toggleBtn"></i></div>
+    <div class="right-section">
+
+      <app-navbar></app-navbar>
     </div>
-  </nav>
+  </div>
+</nav>
 
   <!-- Sidebar -->
-  <aside class="sidebar-area">
-    <ul class="menu">
-      <li class="menu-item">Dashboard</li>
-      <li class="menu-item">Analytics</li>
-      <li class="menu-item">Reports</li>
-      <li class="menu-item">Settings</li>
-    </ul>
+  <aside class="sidebar-area" id="sidebar">
+    <app-sidebar></app-sidebar>
   </aside>
 
   <!-- Main Content -->
   <main class="content-area">
-    <div class="card-container">
-      <div class="card">
-        <h3>Total Users</h3>
-        <p>1,245</p>
-      </div>
-      <div class="card">
-        <h3>Revenue</h3>
-        <p>$58,430</p>
-      </div>
-      <div class="card">
-        <h3>Orders</h3>
-        <p>324</p>
-      </div>
-      <div class="card">
-        <h3>Conversion</h3>
-        <p>3.2%</p>
-      </div>
-    </div>
-    
-    <div class="chart-container">
-      <h2>Performance Overview</h2>
-      <div class="chart-placeholder"></div>
-    </div>
+    <app-main-content></app-main-content>
   </main>
 </div>

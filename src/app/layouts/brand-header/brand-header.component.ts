@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./brand-header.component.scss']
 })
 export class BrandHeaderComponent {
-  @Input() brandName = 'My Dashboard';
+  @Input() brandName = 'My rey';
 }
