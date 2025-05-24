@@ -1,8 +1,13 @@
-
 <ul class="menu">
   <app-profile></app-profile>
-  <li class="menu-item">Dashboard</li>
-  <li class="menu-item">Analytics</li>
-  <li class="menu-item">Reports</li>
-  <li class="menu-item">Settings</li>
+  <li class="menu-item" *ngFor="let item of menuItems" [class.active]="item.active" (click)="selected(item)">
+    <div>
+      <span class="material-icons icon">{{ item.icon }}</span>
+    </div>
+    <div>
+      <span class="item-name">{{ item.name }}</span>
+    </div>
+
+
+  </li>
 </ul>

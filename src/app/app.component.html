@@ -2,25 +2,19 @@
   <!-- Brand/Logo Area -->
   <header class="brand-area" id="brand">
     <!-- <h1>My Dashboard</h1> -->
-    <app-brand-header></app-brand-header>
+    <app-brand></app-brand>
 
   </header>
 
   <!-- Navigation Bar -->
- <nav class="nav-area" id="nav">
-  <div class="nav-content">
-    <div class="left-section" ><i class="fas fa-bars" id="toggleBtn" (click)="toggleLayout()"></i></div>
-    <div class="right-section">
+  <nav class="nav-area" id="nav">
+    <app-navbar></app-navbar>
+  </nav>
 
-      <app-navbar></app-navbar>
-    </div>
-  </div>
-</nav>
-
-  <!-- Sidebar -->
   <aside class="sidebar-area" id="sidebar">
     <app-sidebar></app-sidebar>
   </aside>
+
 
   <!-- Main Content -->
   <main class="content-area" id="content">
