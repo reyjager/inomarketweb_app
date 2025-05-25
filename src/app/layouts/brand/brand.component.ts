@@ -9,8 +9,8 @@ import { CommonModule } from '@angular/common';
 })
 export class BrandHeaderComponent {
   @Input() brandName = 'My rey';
-
   isCollapsed = false;
+
 
   toggleLayout() {
     this.isCollapsed = !this.isCollapsed;

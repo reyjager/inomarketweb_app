@@ -1,34 +1,24 @@
-// .grid-area {
-//   display: grid;
-//   grid-template-areas:
-//     "brand nav"
-//     "sidebar content";
-//   grid-template-columns: 300px 1fr;
-//   grid-template-rows: 70px 1fr;
-//   height: 100vh;
-//   background-color: #f5f5f5;
-//   transition: transform 0.3s ease-in-out;
-// }
+
 .grid-area {
   display: grid;
   grid-template-areas:
-    "brand nav"
-    "sidebar content";
+    "layout-left layout-right";
   grid-template-columns: 300px 1fr;
-  grid-template-rows: 70px 1fr;
+  grid-template-rows: 80px 1fr;
   height: 100vh;
   background-color: #f5f5f5;
 }
 
 
-.grid-area-none {
+.grid-area-collapsed {
   display: grid;
   grid-template-areas:
-    "nav"
-    "content";
-  grid-template-columns: 1fr;
-  grid-template-rows: 70px 1fr;
+    "layout-right";
+  grid-template-columns: 0px 1fr;
   height: 100vh;
   background-color: #f5f5f5;
-  transition: transform 0.3s ease-in-out;
+}
+.layout-left-hidden{
+    width: 0px;
+
 }

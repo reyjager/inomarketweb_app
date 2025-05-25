@@ -4,6 +4,7 @@ import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { SidebarComponent } from './layouts/sidebar/sidebar.component';
 import { MainContentComponent } from './layouts/main-content/main-content.component';
 import { CommonModule } from '@angular/common';
+import { ProfileComponent } from './layouts/profile/profile.component';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ import { CommonModule } from '@angular/common';
     SidebarComponent,
     MainContentComponent,
     CommonModule,
-    BrandHeaderComponent
+    BrandHeaderComponent,
+    ProfileComponent
 ],
   templateUrl: './app.component.html',
   styleUrls: [

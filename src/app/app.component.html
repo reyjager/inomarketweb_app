@@ -1,23 +1,28 @@
 <div class="grid-area" id="grid">
-  <!-- Brand/Logo Area -->
-  <header class="brand-area" id="brand">
-    <!-- <h1>My Dashboard</h1> -->
-    <app-brand></app-brand>
 
-  </header>
+  <div id="left" class="layout-left">
 
-  <!-- Navigation Bar -->
-  <nav class="nav-area" id="nav">
-    <app-navbar></app-navbar>
-  </nav>
+    <header class="brand-area" id="brand">
+      <app-brand></app-brand>
+    </header>
+    <div class="profile-area" id="profile">
+      <app-profile></app-profile>
+    </div>
+    <aside class="sidebar-area" id="sidebar">
+      <app-sidebar></app-sidebar>
+    </aside>
 
-  <aside class="sidebar-area" id="sidebar">
-    <app-sidebar></app-sidebar>
-  </aside>
+  </div>
 
+  <div id="right" class="layout-right">
 
-  <!-- Main Content -->
-  <main class="content-area" id="content">
-    <app-main-content></app-main-content>
-  </main>
+    <nav class="nav-area" id="nav">
+      <app-navbar></app-navbar>
+    </nav>
+    <main class="content-area" id="content">
+      <app-main-content></app-main-content>
+    </main>
+
+  </div>
+
 </div>

@@ -1,6 +1,6 @@
 .nav-area {
   grid-area: nav;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.5);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 0 20px;
 }
@@ -10,7 +10,9 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: 80px;
+
+  transition: transform 0.3s ease-in-out;
 }
 
 .left-section {
@@ -29,3 +31,5 @@
   gap: 20px;
   align-items: center;
 }
+
+
