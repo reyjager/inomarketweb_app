@@ -41,7 +41,7 @@ ul {
   li {
     padding: 10px 0px 10px 20px;
 
-    &:nth-child(2) {
+    &:nth-child(1) {
       margin-top: 40px;
     }
 
@@ -49,5 +49,8 @@ ul {
       background-color: #243443;
     }
   }
+}
+.menu-name{
+  padding-left: 20px;
 }
 

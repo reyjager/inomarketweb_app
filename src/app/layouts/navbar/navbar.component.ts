@@ -27,14 +27,37 @@ export class NavbarComponent {
 
     // Toggle grid layout
     const grid = document.getElementById('grid');
+    const brand = document.getElementById('brand');
+    const profile = document.getElementById('profile');
+    const sidebar = document.getElementById('sidebar');
+
     if (grid) {
       this.renderer[this.isCollapsed ? 'addClass' : 'removeClass'](
         grid,
         'grid-area-collapsed'
       );
-      this.renderer[this.isCollapsed ? 'removeClass' : 'addClass'](
-        grid,
-        'grid-area'
+
+    }
+
+    if (brand) {
+      this.renderer[this.isCollapsed ? 'addClass' : 'removeClass'](
+        brand,
+        'brand-area-collapsed'
+      );
+
+    }
+
+    if (profile) {
+      this.renderer[this.isCollapsed ? 'addClass' : 'removeClass'](
+        profile,
+        'profile-area-collapsed'
+      );
+    }
+
+    if (sidebar) {
+      this.renderer[this.isCollapsed ? 'addClass' : 'removeClass'](
+        sidebar,
+        'sidebar-area-collapsed'
       );
     }
 

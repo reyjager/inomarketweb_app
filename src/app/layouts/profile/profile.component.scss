@@ -3,22 +3,39 @@
   height: 100px;
   background-color: #3e5872;
   overflow: hidden;
-  transition: width 0.3s ease-in-out;
+  transition: width 0.3s ease-in-out; // Matches brand's 0.3s timing
+
+  &-collapsed {
+    width: 0;
+    // Keep same duration as brand
+    transition: width 0.3s ease-in-out;
+  }
 }
 
-.profile-area.profile-area-collapsed {
-  width: 0;
+.profile {
+  min-width: 300px;
+  height: 100px;
+  // Match brand's transition properties and timing
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+  &-hide {
+    opacity: 0;
+    transform: translateX(-20px);
+    // Consistent 0.3s timing throughout
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
 }
 
 .profile-card {
   display: flex;
   align-items: center;
   min-width: 300px;
+  height: 100%;
   padding: 20px 0;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   background-color: #3e5872;
+  // Add transition for child elements
+  // transition: transform 0.3s ease-in-out;
 }
-
 .profile-pic {
   width: 80px;
   height: 80px;
@@ -29,26 +46,19 @@
   flex-shrink: 0;
 }
 
-.profile-info {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.profile-name {
-  margin: 0;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #ffff;
-  white-space: nowrap;
-}
-
+// Text elements with matching transition
+.profile-name,
 .profile-position {
-  margin: 4px 0 0;
-  color: #ffff;
-  font-size: 0.95rem;
-  white-space: nowrap;
+  transition: transform 0.3s ease-in-out;
 }
-.profile-hide{
-  display: none;
+
+.profile-area-collapsed {
+  .profile-card {
+    transform: translateX(-10px);
+  }
+
+  .profile-name,
+  .profile-position {
+    transform: translateX(-5px);
+  }
 }
