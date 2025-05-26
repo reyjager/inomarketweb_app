@@ -16,9 +16,6 @@ export class SidebarComponent {
     { name: 'Settings', icon: 'settings', active: false },
   ];
 
-
-
-
   selected(selectedItem: any): void {
     this.menuItems = this.menuItems.map((item) => ({
       ...item,

@@ -1,0 +1,27 @@
+@use './colors' as c;
+
+// Primary utilities
+.primary-bg {
+  background: c.$pri;
+
+  &:hover {
+    background: c.$pri-hover;
+  }
+}
+
+.primary-text {
+  color: c.$pri-text;
+}
+
+// Secondary utilities
+.secondary-bg {
+  background: c.$sec;
+
+  &:hover {
+    background: c.$sec-hover;
+  }
+}
+
+.secondary-text {
+  color: c.$sec-text;
+}
