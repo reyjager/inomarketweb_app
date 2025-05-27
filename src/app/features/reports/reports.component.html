@@ -1,0 +1,154 @@
+<div class="reports-container">
+  <!-- Reports Header -->
+  <h2>Reports Dashboard</h2>
+  <br>
+  <div class="reports-header">
+    <div class="report-controls">
+      <div class="date-range-selector">
+        <label for="startDate" class="sr-only">Start Date</label>
+        <input id="startDate" type="date" [ngModel]="dateRange.start" (ngModelChange)="dateRange.start = $event">
+        <span>to</span>
+        <label for="endDate" class="sr-only">End Date</label>
+        <input id="endDate" type="date" [ngModel]="dateRange.end" (ngModelChange)="dateRange.end = $event">
+        <button class="apply-btn" aria-label="Apply date range">
+          <span class="material-icons">refresh</span>
+          Apply
+        </button>
+      </div>
+
+      <div class="export-options">
+        <button (click)="exportReport('pdf')" class="export-btn" aria-label="Export to PDF">
+          <span class="material-icons">picture_as_pdf</span>
+          PDF
+        </button>
+        <button (click)="exportReport('csv')" class="export-btn" aria-label="Export to CSV">
+          <span class="material-icons">grid_on</span>
+          CSV
+        </button>
+        <button (click)="exportReport('print')" class="export-btn" aria-label="Print report">
+          <span class="material-icons">print</span>
+          Print
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Report Tabs -->
+  <div class="report-tabs" role="tablist">
+    <button
+      role="tab"
+      [class.active]="activeTab === 'sales'"
+      (click)="setActiveTab('sales')"
+      [attr.aria-selected]="activeTab === 'sales'"
+      aria-controls="sales-tab">
+      Sales Reports
+    </button>
+    <button
+      role="tab"
+      [class.active]="activeTab === 'users'"
+      (click)="setActiveTab('users')"
+      [attr.aria-selected]="activeTab === 'users'"
+      aria-controls="users-tab">
+      User Activity
+    </button>
+    <button
+      role="tab"
+      [class.active]="activeTab === 'system'"
+      (click)="setActiveTab('system')"
+      [attr.aria-selected]="activeTab === 'system'"
+      aria-controls="system-tab">
+      System Metrics
+    </button>
+    <button
+      role="tab"
+      [class.active]="activeTab === 'custom'"
+      (click)="setActiveTab('custom')"
+      [attr.aria-selected]="activeTab === 'custom'"
+      aria-controls="custom-tab">
+      Custom Reports
+    </button>
+  </div>
+
+  <!-- Report Content -->
+  <div class="report-content">
+    <!-- Sales Report -->
+    <div *ngIf="activeTab === 'sales'" class="report-section" id="sales-tab" role="tabpanel" aria-labelledby="sales-tab">
+      <!-- ... rest of sales report content ... -->
+    </div>
+
+    <!-- User Activity Report -->
+    <div *ngIf="activeTab === 'users'" class="report-section" id="users-tab" role="tabpanel" aria-labelledby="users-tab">
+      <!-- ... rest of user activity content ... -->
+    </div>
+
+    <!-- System Metrics Report -->
+    <div *ngIf="activeTab === 'system'" class="report-section" id="system-tab" role="tabpanel" aria-labelledby="system-tab">
+      <!-- ... rest of system metrics content ... -->
+    </div>
+
+    <!-- Custom Report -->
+    <div *ngIf="activeTab === 'custom'" class="report-section" id="custom-tab" role="tabpanel" aria-labelledby="custom-tab">
+      <div class="custom-report-builder">
+        <h3>Build Custom Report</h3>
+        <div class="builder-container">
+          <div class="builder-options">
+            <div class="form-group">
+              <label for="reportType">Report Type</label>
+              <select id="reportType" name="reportType" aria-label="Select report type">
+                <option>Tabular Data</option>
+                <option>Summary Statistics</option>
+                <option>Time Series</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="dataSource">Data Source</label>
+              <select id="dataSource" name="dataSource" aria-label="Select data source">
+                <option>Sales Data</option>
+                <option>User Activity</option>
+                <option>System Metrics</option>
+                <option>All Sources</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <fieldset>
+                <legend>Columns to Include</legend>
+                <div class="checkbox-group">
+                  <label>
+                    <input type="checkbox" name="dateColumn" checked>
+                    Date
+                  </label>
+                  <label>
+                    <input type="checkbox" name="amountColumn" checked>
+                    Amount
+                  </label>
+                  <label>
+                    <input type="checkbox" name="statusColumn">
+                    Status
+                  </label>
+                  <label>
+                    <input type="checkbox" name="userColumn">
+                    User
+                  </label>
+                </div>
+              </fieldset>
+            </div>
+
+            <button class="generate-btn" aria-label="Generate report">
+              <span class="material-icons">insert_chart</span>
+              Generate Report
+            </button>
+          </div>
+
+          <div class="report-preview">
+            <h4>Report Preview</h4>
+            <div class="preview-placeholder">
+              <p>Select options to generate a custom report preview</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LayoutService } from '../../services/layout.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -16,10 +17,16 @@ export class SidebarComponent {
     { name: 'Settings', icon: 'settings', active: false },
   ];
 
+  constructor(private layoutService: LayoutService) {}
+
   selected(selectedItem: any): void {
-    this.menuItems = this.menuItems.map((item) => ({
-      ...item,
-      active: item === selectedItem,
-    }));
+    // Update active state locally
+    this.menuItems.forEach((item) => {
+      item.active = item === selectedItem;
+    });
+
+    // Notify the service about the change
+    this.layoutService.setCurrentView(selectedItem.name);
   }
 }
+

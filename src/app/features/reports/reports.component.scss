@@ -1,0 +1,363 @@
+.reports-container {
+  padding: 2rem;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.reports-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+
+  h2 {
+    font-size: 1.75rem;
+    color: #2c3e50;
+    margin: 0;
+  }
+}
+.report-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%; // Ensure it takes full width
+
+  .date-range-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-right: auto; // Pushes it to the left
+
+    input {
+      padding: 0.5rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .apply-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.5rem 1rem;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #2980b9;
+      }
+    }
+  }
+
+  .export-options {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: auto; // Pushes it to the right
+
+    .export-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.5rem 1rem;
+      background-color: #f8f9fa;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #e9ecef;
+      }
+    }
+  }
+}
+
+.report-tabs {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 1.5rem;
+
+  button {
+    padding: 0.75rem 1.5rem;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-weight: 500;
+    color: #7f8c8d;
+
+    &.active {
+      color: #2c3e50;
+      border-bottom-color: #3498db;
+    }
+
+    &:hover:not(.active) {
+      color: #3498db;
+    }
+  }
+}
+
+.report-section {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.summary-card {
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  border-left: 4px solid #3498db;
+
+  h3 {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .trend {
+    font-size: 0.8rem;
+    margin: 0.25rem 0 0 0;
+
+    &.positive {
+      color: #27ae60;
+    }
+
+    &.negative {
+      color: #e74c3c;
+    }
+  }
+}
+
+.report-table {
+  margin-top: 1.5rem;
+
+  h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background-color: #f8f9fa;
+      font-weight: 600;
+    }
+
+    .status-badge {
+      padding: 0.25rem 0.5rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 500;
+
+      &.completed {
+        background-color: #d5f5e3;
+        color: #27ae60;
+      }
+
+      &.pending {
+        background-color: #fef9e7;
+        color: #f39c12;
+      }
+
+      &.cancelled {
+        background-color: #fadbd8;
+        color: #e74c3c;
+      }
+    }
+
+    .action-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.25rem;
+      margin-right: 0.5rem;
+      color: #7f8c8d;
+
+      &:hover {
+        color: #3498db;
+      }
+    }
+  }
+}
+
+.user-activity-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1.5rem;
+
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.metric-card {
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  text-align: center;
+
+  h3 {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .metric-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .metric-trend {
+    font-size: 0.8rem;
+    margin: 0.25rem 0 0 0;
+
+    &.positive {
+      color: #27ae60;
+    }
+
+    &.negative {
+      color: #e74c3c;
+    }
+  }
+}
+
+.system-charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chart-placeholder {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  color: #7f8c8d;
+  border: 1px dashed #ddd;
+}
+
+.custom-report-builder {
+  .builder-container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 1.5rem;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    select,
+    input[type="text"],
+    input[type="date"] {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      label {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: normal;
+        margin: 0;
+      }
+    }
+  }
+
+  .generate-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+
+    &:hover {
+      background-color: #2980b9;
+    }
+  }
+
+  .report-preview {
+    .preview-placeholder {
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      color: #7f8c8d;
+      border: 1px dashed #ddd;
+    }
+  }
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

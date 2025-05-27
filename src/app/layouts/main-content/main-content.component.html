@@ -1,23 +1,28 @@
-<div class="card-container"  id="content">
-      <div class="card">
-        <h3>Total Users</h3>
-        <p>1,245</p>
-      </div>
-      <div class="card">
-        <h3>Revenue</h3>
-        <p>$58,430</p>
-      </div>
-      <div class="card">
-        <h3>Orders</h3>
-        <p>324</p>
-      </div>
-      <div class="card">
-        <h3>Conversion</h3>
-        <p>3.2%</p>
-      </div>
-    </div>
+<ng-container [ngSwitch]="currentView">
+  <div *ngSwitchCase="'Dashboard'">
+    <h2>Dashboard</h2>
+    <br>
+    <app-dashboard></app-dashboard>
+  </div>
 
-    <div class="chart-container">
-      <h2>Performance Overview</h2>
-      <div class="chart-placeholder"></div>
+  <div *ngSwitchCase="'Analytics'">
+   <app-analytics></app-analytics>
+  </div>
+
+  <div *ngSwitchCase="'Reports'">
+    <app-reports></app-reports>
+  </div>
+
+  <div *ngSwitchCase="'Settings'">
+    <div class="settings-header">
+      <h1>Settings</h1>
+      <p class="subtitle">Manage your account and application preferences</p>
     </div>
+    <app-settings></app-settings>
+  </div>
+
+  <!-- <div *ngSwitchDefault>
+    <h2>Welcome!</h2>
+
+  </div> -->
+</ng-container>

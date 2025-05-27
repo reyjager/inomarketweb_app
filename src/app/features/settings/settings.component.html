@@ -1,0 +1,296 @@
+<div class="settings-container">
+  <!-- Settings Navigation -->
+  <!-- <div class="settings-nav">
+    <button class="nav-item active" id="account" (click)="setActiveTab('account')" aria-label="Account settings">
+      <span class="material-icons">person</span>
+      <span>Account</span>
+    </button>
+    <button class="nav-item" id="notifications" (click)="setActiveTab('notifications')" aria-label="Notification settings">
+      <span class="material-icons">notifications</span>
+      <span>Notifications</span>
+    </button>
+    <button class="nav-item" id="security" (click)="setActiveTab('security')" aria-label="Security settings">
+      <span class="material-icons">lock</span>
+      <span>Security</span>
+    </button>
+    <button class="nav-item" id="appearance" (click)="setActiveTab('appearance')" aria-label="Appearance settings">
+      <span class="material-icons">palette</span>
+      <span>Appearance</span>
+    </button>
+    <button class="nav-item" id="integrations" (click)="setActiveTab('integrations')" aria-label="Integration settings">
+      <span class="material-icons">extension</span>
+      <span>Integrations</span>
+    </button>
+  </div> -->
+  <div class="settings-nav">
+    <button class="nav-item" [class.active]="activeTab === 'account'" id="account" (click)="setActiveTab('account')" aria-label="Account settings">
+      <span class="material-icons">person</span>
+      <span>Account</span>
+    </button>
+    <button class="nav-item" [class.active]="activeTab === 'notifications'" id="notifications" (click)="setActiveTab('notifications')" aria-label="Notification settings">
+      <span class="material-icons">notifications</span>
+      <span>Notifications</span>
+    </button>
+    <button class="nav-item" [class.active]="activeTab === 'security'" id="security" (click)="setActiveTab('security')" aria-label="Security settings">
+      <span class="material-icons">lock</span>
+      <span>Security</span>
+    </button>
+    <button class="nav-item" [class.active]="activeTab === 'appearance'" id="appearance" (click)="setActiveTab('appearance')" aria-label="Appearance settings">
+      <span class="material-icons">palette</span>
+      <span>Appearance</span>
+    </button>
+    <button class="nav-item" [class.active]="activeTab === 'integrations'" id="integrations" (click)="setActiveTab('integrations')" aria-label="Integration settings">
+      <span class="material-icons">extension</span>
+      <span>Integrations</span>
+    </button>
+</div>
+
+  <!-- Settings Content -->
+  <div class="settings-content">
+    <!-- Account Settings -->
+    <div *ngIf="activeTab === 'account'" class="settings-section">
+      <h2>Account Information</h2>
+      <form class="settings-form">
+        <div class="form-group">
+          <label for="profilePhoto">Profile Photo</label>
+          <div class="photo-upload">
+            <img [src]="user.photoUrl || 'assets/default-avatar.png'" alt="Profile photo" class="profile-photo">
+            <div class="upload-actions">
+              <button type="button" class="btn-upload" aria-label="Upload new photo">
+                <span class="material-icons">photo_camera</span>
+                Change Photo
+              </button>
+              <button type="button" class="btn-remove" aria-label="Remove photo" *ngIf="user.photoUrl">
+                <span class="material-icons">delete</span>
+                Remove
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <!-- [(ngModel)]="user.fullName" -->
+          <input id="fullName" type="text"  name="fullName">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <!-- [(ngModel)]="user.email"  -->
+          <input id="email" type="email" name="email">
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <!-- [(ngModel)]="user.phone" -->
+          <input id="phone" type="tel"  name="phone">
+        </div>
+
+        <div class="form-group">
+          <label for="timezone">Timezone</label>
+          <select id="timezone"  name="timezone">
+            <!-- [(ngModel)]="user.timezone" -->
+            <option *ngFor="let tz of timezones" [value]="tz">{{tz}}</option>
+          </select>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn-cancel" aria-label="Cancel changes">Cancel</button>
+          <button type="submit" class="btn-save" aria-label="Save changes">Save Changes</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Notification Settings -->
+    <div *ngIf="activeTab === 'notifications'" class="settings-section">
+      <h2>Notification Preferences</h2>
+      <form class="settings-form">
+        <div class="form-group">
+          <h3>Email Notifications</h3>
+          <div class="checkbox-group">
+            <label>
+              <!-- [(ngModel)]="notifications.email.newsletter" -->
+              <input type="checkbox"  name="newsletter">
+              <span>Monthly newsletter</span>
+            </label>
+            <label>
+              <!-- [(ngModel)]="notifications.email.productUpdates"  -->
+              <input type="checkbox" name="productUpdates">
+              <span>Product updates</span>
+            </label>
+            <label>
+              [(ngModel)]="notifications.email.securityAlerts"
+              <input type="checkbox"  name="securityAlerts">
+              <span>Security alerts</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <h3>Push Notifications</h3>
+          <div class="checkbox-group">
+            <label>
+              <!-- [(ngModel)]="notifications.push.newMessages" -->
+              <input type="checkbox"  name="newMessages">
+              <span>New messages</span>
+            </label>
+            <label>
+              <!-- [(ngModel)]="notifications.push.reminders" -->
+              <input type="checkbox"  name="reminders">
+              <span>Reminders</span>
+            </label>
+            <label>
+              <!-- [(ngModel)]="notifications.push.mentions" -->
+              <input type="checkbox"  name="mentions">
+              <span>Mentions</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <h3>Notification Frequency</h3>
+          <div class="radio-group">
+            <label>
+              <!-- [(ngModel)]="notifications.frequency" -->
+              <input type="radio" name="frequency"  value="instant">
+              <span>Instant</span>
+            </label>
+            <label>
+              <!-- [(ngModel)]="notifications.frequency"  -->
+              <input type="radio" name="frequency" value="daily">
+              <span>Daily digest</span>
+            </label>
+            <label>
+
+              <input type="radio" name="frequency"  value="weekly">
+              <span>Weekly summary</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn-cancel" aria-label="Cancel changes">Cancel</button>
+          <button type="submit" class="btn-save" aria-label="Save changes">Save Preferences</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Security Settings -->
+    <div *ngIf="activeTab === 'security'" class="settings-section">
+      <h2>Security Settings</h2>
+      <form class="settings-form">
+        <div class="form-group">
+          <h3>Password</h3>
+          <div class="password-info">
+            <span>Last changed: {{user.passwordLastChanged | date}}</span>
+            <button type="button" class="btn-change" (click)="openPasswordModal()" aria-label="Change password">
+              Change Password
+            </button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <h3>Two-Factor Authentication</h3>
+          <div class="two-factor-info">
+            <span class="status" [class.enabled]="user.twoFactorEnabled">
+              {{user.twoFactorEnabled ? 'Enabled' : 'Disabled'}}
+            </span>
+            <button type="button" class="btn-toggle" (click)="toggleTwoFactor()" aria-label="Toggle two-factor authentication">
+              {{user.twoFactorEnabled ? 'Disable' : 'Enable'}}
+            </button>
+          </div>
+          <p class="description">Add an extra layer of security to your account</p>
+        </div>
+
+        <div class="form-group">
+          <h3>Active Sessions</h3>
+          <div class="sessions-list">
+            <div *ngFor="let session of activeSessions" class="session-item">
+              <div class="session-info">
+                <span class="device">{{session.device}}</span>
+                <span class="location">{{session.location}}</span>
+                <span class="ip">{{session.ip}}</span>
+                <span class="last-active">Last active: {{session.lastActive | date:'short'}}</span>
+              </div>
+              <button type="button" class="btn-logout" (click)="endSession(session.id)" aria-label="End session">
+                <span class="material-icons">logout</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Appearance Settings -->
+    <div *ngIf="activeTab === 'appearance'" class="settings-section">
+      <h2>Appearance</h2>
+      <form class="settings-form">
+        <div class="form-group">
+          <h3>Theme</h3>
+          <div class="theme-options">
+            <div class="theme-option" *ngFor="let theme of themes" (click)="selectTheme(theme.id)">
+              <div class="theme-preview" [class.active]="theme.id === selectedTheme">
+                <div class="theme-colors">
+                  <div class="color-primary" [style.background]="theme.colors.primary"></div>
+                  <div class="color-secondary" [style.background]="theme.colors.secondary"></div>
+                  <div class="color-background" [style.background]="theme.colors.background"></div>
+                </div>
+              </div>
+              <span class="theme-name">{{theme.name}}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <h3>Dark Mode</h3>
+          <div class="dark-mode-toggle">
+            <span>System Default</span>
+            <label class="switch">
+              <!-- [(ngModel)]="appearance.darkMode" -->
+              <input type="checkbox"  name="darkMode">
+              <span class="slider round"></span>
+            </label>
+            <span>Dark Mode</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <h3>Font Size</h3>
+          <div class="font-size-control">
+            <button type="button" (click)="decreaseFontSize()" aria-label="Decrease font size">
+              <span class="material-icons">remove</span>
+            </button>
+            <div class="font-size-preview" [style.fontSize.px]="appearance.fontSize">
+              Aa
+            </div>
+            <button type="button" (click)="increaseFontSize()" aria-label="Increase font size">
+              <span class="material-icons">add</span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Integrations Settings -->
+    <div *ngIf="activeTab === 'integrations'" class="settings-section">
+      <h2>Connected Apps</h2>
+      <div class="integrations-list">
+        <div *ngFor="let integration of integrations" class="integration-item">
+          <div class="integration-info">
+            <img [src]="integration.logo" [alt]="integration.name + ' logo'" class="integration-logo">
+            <div class="integration-details">
+              <h3>{{integration.name}}</h3>
+              <p>{{integration.description}}</p>
+              <span class="connection-status" [class.connected]="integration.connected">
+                {{integration.connected ? 'Connected' : 'Not Connected'}}
+              </span>
+            </div>
+          </div>
+          <button type="button" class="btn-action" (click)="integration.connected ? disconnect(integration.id) : connect(integration.id)">
+            {{integration.connected ? 'Disconnect' : 'Connect'}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

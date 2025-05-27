@@ -1,0 +1,84 @@
+<div class="analytics-container">
+  <!-- Header -->
+  <header class="analytics-header">
+    <h2 class="text-2xl font-bold">Analytics Dashboard</h2>
+    <div class="date-range-picker">
+      <span class="material-icons">calendar_today</span>
+      <span>Last 30 Days</span>
+      <span class="material-icons">arrow_drop_down</span>
+    </div>
+  </header>
+
+  <!-- Metrics Cards -->
+  <div class="metrics-grid">
+    <div *ngFor="let metric of performanceMetrics" class="metric-card">
+      <div class="metric-info">
+        <span class="metric-name">{{ metric.name }}</span>
+        <span class="metric-value">
+          {{ metric.value }}<span class="metric-unit">{{ metric.unit }}</span>
+        </span>
+      </div>
+      <div class="metric-trend">
+        <span class="material-icons {{ getTrendColor(metric.trend) }}">
+          {{ getTrendIcon(metric.trend) }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Charts Section -->
+  <div class="charts-grid">
+    <!-- Line Chart -->
+    <div class="chart-container">
+      <h3 class="chart-title">User Growth</h3>
+      <canvas id="lineChart"></canvas>
+    </div>
+
+    <!-- Bar Chart -->
+    <div class="chart-container">
+      <h3 class="chart-title">Revenue by Product</h3>
+      <canvas id="barChart"></canvas>
+    </div>
+
+    <!-- Pie Chart -->
+    <div class="chart-container">
+      <h3 class="chart-title">Device Distribution</h3>
+      <canvas id="pieChart"></canvas>
+    </div>
+
+    <!-- Data Table -->
+    <div class="table-container">
+      <h3 class="chart-title">Recent Activity</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Event</th>
+            <th>User</th>
+            <th>Time</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Login</td>
+            <td>userexample.com</td>
+            <td>2 mins ago</td>
+            <td><span class="status-badge success">Success</span></td>
+          </tr>
+          <tr>
+            <td>Purchase</td>
+            <td>clientcompany.com</td>
+            <td>15 mins ago</td>
+            <td><span class="status-badge success">Success</span></td>
+          </tr>
+          <tr>
+            <td>API Call</td>
+            <td>system</td>
+            <td>32 mins ago</td>
+            <td><span class="status-badge warning">Warning</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

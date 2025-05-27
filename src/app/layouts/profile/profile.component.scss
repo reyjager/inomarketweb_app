@@ -1,8 +1,11 @@
+@use '../../../styles/colors.scss' as c;
+
 .profile-area {
   width: 300px;
   height: 100px;
-  background-color: #3e5872;
+  background-color: c.$sec;
   overflow: hidden;
+  border-bottom: 2px solid grey;
   transition: width 0.3s ease-in-out; // Matches brand's 0.3s timing
 
   &-collapsed {
@@ -13,7 +16,6 @@
 }
 
 .profile {
-  min-width: 300px;
   height: 100px;
   // Match brand's transition properties and timing
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -29,7 +31,6 @@
 .profile-card {
   display: flex;
   align-items: center;
-  min-width: 300px;
   height: 100%;
   padding: 20px 0;
   background-color: #3e5872;
@@ -49,6 +50,7 @@
 // Text elements with matching transition
 .profile-name,
 .profile-position {
+  color: white;
   transition: transform 0.3s ease-in-out;
 }
 

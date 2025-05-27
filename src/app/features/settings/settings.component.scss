@@ -1,0 +1,92 @@
+.settings-container {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 100vw;
+  max-height: 100vh;
+  margin: 0 auto;
+}
+
+.settings-header {
+  grid-column: 1 / -1;
+  margin-bottom: 1rem;
+}
+
+.settings-header h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.settings-header .subtitle {
+  color: #666;
+  margin: 0.5rem 0 0;
+}
+
+.settings-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  color: #333;
+}
+
+.nav-item.active {
+  background-color: #f0f4ff;
+  color: #3a6bff;
+  font-weight: 500;
+}
+
+.nav-item:hover:not(.active) {
+  background-color: #f5f5f5;
+}
+
+.settings-content {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.settings-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Add more styles for form controls, buttons, etc. */
+
+@media (max-width: 768px) {
+  .settings-container {
+    grid-template-columns: 1fr;
+  }
+
+  .settings-nav {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+}
