@@ -1,10 +1,27 @@
 <div class="sidebar">
-  <ul class="menu">
-    <li class="menu-item" *ngFor="let item of menuItems"
+  <ul class="menu-list">
+    <li *ngFor="let item of menuItems"
         [class.active]="item.active"
-        (click)="selected(item)">
-      <span class="material-icons icon">{{ item.icon }}</span>
-      <span class="menu-name">{{ item.name }}</span>
+        [class.has-submenu]="item.subItems">
+
+      <a (click)="toggleSubMenu(item)">
+        <span class="material-icons">{{item.icon}}</span>
+        <span class="menu-text">{{item.name}}</span>
+        <span *ngIf="item.subItems" class="submenu-toggle">
+          {{item.expanded ? '▼' : '▶'}}
+        </span>
+      </a>
+
+      <ul *ngIf="item.subItems"
+          class="submenu"
+          [class.expanded]="item.expanded">
+        <li *ngFor="let subItem of item.subItems"
+            [class.active]="subItem.active">
+          <a (click)="selectSubItem(item, subItem)">
+            {{subItem.name}}
+          </a>
+        </li>
+      </ul>
     </li>
   </ul>
 </div>

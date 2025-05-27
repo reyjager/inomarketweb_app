@@ -5,13 +5,13 @@
     <app-dashboard></app-dashboard>
   </div>
 
-  <div *ngSwitchCase="'Analytics'">
+  <!-- <div *ngSwitchCase="'Analytics'">
    <app-analytics></app-analytics>
   </div>
 
   <div *ngSwitchCase="'Reports'">
     <app-reports></app-reports>
-  </div>
+  </div> -->
 
   <div *ngSwitchCase="'Settings'">
     <div class="settings-header">
@@ -21,8 +21,42 @@
     <app-settings></app-settings>
   </div>
 
-  <!-- <div *ngSwitchDefault>
-    <h2>Welcome!</h2>
+  <div *ngSwitchCase="'Analytics - Analytics 1'">
+    <app-analytics></app-analytics>
+  </div>
 
-  </div> -->
+  <div *ngSwitchCase="'Analytics - Analytics 2'">
+   <app-ana2></app-ana2>
+  </div>
+
+  <div *ngSwitchCase="'Analytics - Analytics 3'">
+    <app-ana3></app-ana3>
+  </div>
+
+  <div *ngSwitchCase="'Analytics - Analytics 4'">
+   <app-ana4></app-ana4>
+  </div>
+
+  <div *ngSwitchCase="'Reports - report 1'">
+    <app-reports></app-reports>
+  </div>
+
+  <div *ngSwitchCase="'Reports - report 2'">
+    <app-report2></app-report2>
+  </div>
+
+  <div *ngSwitchCase="'Reports - report 3'">
+    <app-report3></app-report3>
+  </div>
+
+  <div *ngSwitchCase="'Reports - report 4'">
+    <app-report4></app-report4>
+  </div>
+
+
+  <div *ngSwitchDefault>
+    <h2>Welcome! rey</h2>
+  </div>
+
+
 </ng-container>
