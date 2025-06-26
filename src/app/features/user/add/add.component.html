@@ -1,0 +1,42 @@
+<h2>Add New User</h2>
+<form action="/submit-user" method="post">
+    <div class="form-group">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+
+    <div class="form-group">
+        <label for="department">Department:</label>
+        <select id="department" name="department" required>
+            <option value="">Select Department</option>
+            <option value="hr">Human Resources</option>
+            <option value="it">Information Technology</option>
+            <option value="finance">Finance</option>
+            <option value="marketing">Marketing</option>
+            <option value="operations">Operations</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="role">Role:</label>
+        <select id="role" name="role" required>
+            <option value="">Select Role</option>
+            <option value="admin">Administrator</option>
+            <option value="manager">Manager</option>
+            <option value="employee">Employee</option>
+            <option value="guest">Guest</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required minlength="8">
+    </div>
+
+    <div class="form-group">
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" name="confirm-password" required minlength="8">
+    </div>
+
+    <button type="submit">Add User</button>
+</form>
